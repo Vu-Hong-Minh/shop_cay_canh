@@ -1,0 +1,109 @@
+{% extends 'pages/layout.html' %}
+{% block body %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+            {% include 'includes/_flashmsg.html' %}
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default my-4">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i>All Product List
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {% if result %}
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Danh mục sản phẩm</th>
+                                        <th>Tên thường gọi</th>
+                                        <th>Tên khoa học</th>
+                                        <th>Giá tiền</th>
+                                        <th>Kích thước</th>
+                                        <th>Ảnh sản phẩm</th>
+                                        <th>Công dụng</th>
+                                        <th>Mô tả</th>
+                                        <th>Cách trồng & Chăm sóc</th>
+                                        <th>Ngày tạo</th>
+                                        <th>Số lượng</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for product in result %}
+                                    <tr>
+                                        <td>{{product[0]}}</td>
+                                        {% if product[1] == 1 %}
+                                        <td>Cây dây leo</td>
+                                        {% elif product[1] == 2 %}
+                                        <td>Cây công trình</td>
+                                        {% elif product[1] == 3 %}
+                                        <td>Cây giống</td>
+                                        {% elif product[1] == 4 %}
+                                        <td>Cây thủy sinh</td>
+                                        {% elif product[1] == 6 %}
+                                        <td>Cây không khí</td>
+                                        {% elif product[1] == 7 %}
+                                        <td>Cây để bàn</td>
+                                        {% elif product[1] == 8 %}
+                                        <td>Bosai cây cảnh</td>
+                                        {% elif product[1] == 9 %}
+                                        <td>Cây bám tường</td>
+                                        {% elif product[1] == 10 %}
+                                        <td>Cây ăn quả</td>
+                                        {% elif product[1] == 11 %}
+                                        <td>Cây trồng trong nước</td>
+                                        {% elif product[1] == 12 %}
+                                        <td>Cây may mắn</td>
+                                        {% elif product[1] == 13 %}
+                                        <td>Cây nội thật</td>
+                                        {% endif %}
+                                        <td>{{product[2]}}</td>
+                                        <td>{{product[3]}}</td>
+                                        <td>{{product[4]}}</td>
+                                        <td>{{product[5]}}</td>
+                                        <td><img src="../static/image/product/{{product[6]}}" alt="Ảnh sản phẩm {{product[0]}}" width="150" height="100"></td>
+                                        <td>{{product[7]}}</td>
+                                        <td>{{product[8]}}</td>
+                                        <td>{{product[9]}}</td>
+                                        <td>{{product[10]}}</td>
+                                        <td>{{product[15]}}</td>
+                                        <td>
+                                            <a href="/restore_product?id={{product[0]}}">
+                                                <div class="">
+                                                    <span class="">Khôi phục</span>
+                                                    <span class="pull-right"><i class="fa fa-trash"></i></span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% else %}
+                            <h3>No orders found</h3>
+                            {% endif %}
+                            <!-- /.table-responsive -->
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+{% endblock %}

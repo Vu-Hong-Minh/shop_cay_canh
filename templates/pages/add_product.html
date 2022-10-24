@@ -1,0 +1,99 @@
+{% extends 'pages/layout.html' %}
+{% block body %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add Product</h1>
+            {% include 'includes/_flashmsg.html' %}
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" enctype=multipart/form-data class="" action="/admin_add_product"
+                                  method="post">
+                                <div class="form-group">
+                                    <label>Danh mục sản phẩm</label>
+                                    <select class="form-control" id = "caegory_id" onchange="populateList();"
+                                            name="category_id">
+                                        <option value="Cây dây leo" selected>Cây dây leo</option>
+                                        <option value="Cây công trình">Cây công trình</option>
+                                        <option value="Cây giống">Cây giống</option>
+                                        <option value="Cây thủy sinh">Cây thủy sinh</option>
+                                        <option value="Cây công trình">Cây công trình</option>
+                                        <option value="Cây để bàn">Cây để bàn</option>
+                                        <option value="Bonsai cây cảnh">Bonsai cây cảnh</option>
+                                        <option value="Cây bám tường">Cây bám tường</option>
+                                        <option value="Cây ăn quả">Cây ăn quả</option>
+                                        <option value="Cây trồng trong nước">Cây trồng trong nước</option>
+                                        <option value="Cây may mắn">Cây may mắn</option>
+                                        <option value="Cây nội thất">Cây nội thất</option>
+                                        <option value="Cây không khí" >Cây không khí</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên thường gọi</label>
+                                    <input class="form-control" required="required" name="name_of" placeholder="nhập tên sản phẩm">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên khoa học</label>
+                                    <input class="form-control" required="required" name="science_name" placeholder="Nhập tên khoa học">
+                                </div>
+                                <div class="form-group">
+                                    <label>Giá tiền</label>
+                                    <input class="form-control" required="required" name="price" placeholder="Nhập giá tiền">
+                                </div>
+                                <div class="form-group">
+                                    <label>Kích thước</label>
+                                    <select class="form-control" id="product_size" onchange="populateList();"
+                                            name="product_size">
+                                        <option value="20 - 50 cm" selected>20 - 50 cm</option>
+                                        <option value="60 - 100 cm">60 - 100 cm</option>
+                                        <option value="cao hơn 1m">cao hơn 1m</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ảnh</label>
+                                    <input type="file" name="image">
+                                </div>
+                                <div class="form-group">
+                                    <label>Công dụng</label>
+                                    <textarea class="form-control" required="required" name="uses" rows="3"
+                                              placeholder="Viết công dụng"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" required="required" name="description" rows="3"
+                                              placeholder="Viết mô tả"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cách trồng & chăm sóc</label>
+                                    <textarea class="form-control" required="required" name="care_plant" rows="3"
+                                              placeholder="Viết cách trồng & chăm sóc"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số lượng</label>
+                                    <input class="form-control" required="required" name="quantity" placeholder="Số lượng">
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit Button</button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+{% endblock %}
